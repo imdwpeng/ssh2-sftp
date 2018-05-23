@@ -8,11 +8,16 @@
   },
   "author": {
     "name": "Eric",
-    "email": "394308395@qq.com"
+    "email": "394308395@qq.com",
+    "url": "http://dwpblog.site/"
   },
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "glob": "^7.1.2",
     "ssh2": "^0.5.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imdwpeng/ssh-sftp.git"
   }
 }
