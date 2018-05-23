@@ -28,7 +28,7 @@ var sftpClient = require('ssh2-sftp'),
 
 `config` containers the sftp server configuration:
 
-* **host** - string - Hostname or IP address of the server.**Default:** `'localhost'`
+* **host** - string - Hostname or IP address of the server. **Default:** `'localhost'`
 * **port** - integer - Port number of the server. **Default:** `'localhost'`
 * **user** - string - Username for authentication.
 * **password** - string - Password for password-based user authentication. 
@@ -47,7 +47,8 @@ And passing the callback which should be executed when the client is ready.
 
 ### Methods
 
-* **upload**(< Object > options,< Function > callback) - expand the `options.source` paths using the glob module,upload all found files and directories to the specified `options.remotePath`,and passing the callback which should be executed after the client has be uploaded. `options` can have the following properties:
+* **upload**(< Object > options,< Function > callback) - expand the `options.source` paths using the glob module, upload all found files and directories to the specified `options.remotePath`, and passing the callback which should be executed after the client has be uploaded. 
+`options` can have the following properties:
     * **source** - string - the `source` which should to be uploaded.
     * **localPath** - string - the local directory which should to be uploaded.
     * **remotePath** - string - the remote sftp directory which should to be received.
