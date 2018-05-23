@@ -49,6 +49,7 @@ And passing the callback which should be executed when the client is ready.
 
 * **upload**(< Object > options,< Function > callback) - expand the `options.source` paths using the glob module, upload all found files and directories to the specified `options.remotePath`, and passing the callback which should be executed after the client has be uploaded. 
 `options` can have the following properties:
+    
     * **source** - string - the `source` which should to be uploaded.
     * **localPath** - string - the local directory which should to be uploaded.
     * **remotePath** - string - the remote sftp directory which should to be received.
