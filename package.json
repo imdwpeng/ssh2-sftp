@@ -1,7 +1,7 @@
 {
   "name": "ssh2-sftp",
   "version": "1.0.0",
-  "description": "",
+  "description": "SFTP client for node.js. Support Download and Upload.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

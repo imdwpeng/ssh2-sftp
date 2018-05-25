@@ -1,5 +1,5 @@
 # ssh2-sftp
-SFTP client for node.js.
+SFTP client for node.js. Support Download and Upload.
 
 [![NPM version](https://img.shields.io/npm/v/ssh2-sftp.svg?style=flat)](https://www.npmjs.com/package/ssh2-sftp)
 
