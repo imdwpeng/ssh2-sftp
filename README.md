@@ -154,8 +154,7 @@ And passing the callback which should be executed when the client is ready.
 * **download**(< Object > options,< Function > callback) - downloads the contents of `options.remotePath` to `options.localPath` if both exist, and  passing the callback which should be executed after the client downloaded successfully.
 `options` can have the following properties:
 
-    * **source** - string - The `source` which should to be downloaded. Supports files and directories. If not set `source` , download all of files and directories. **Default:** `''`
-    **notice：`Source` path is based on `remotePath`.**
+    * **source** - string - The `source` which should to be downloaded. Supports files and directories. If not set `source` , download all of files and directories. **Default:** `'' (`**notice：`Source` path is based on `remotePath`.**)
     * **localPath** - string - The local directory which should to be received.
     * **remotePath** - string - The remote sftp directory which should to be downloaded.
 
