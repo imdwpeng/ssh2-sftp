@@ -1,6 +1,8 @@
 # ssh2-sftp
 SFTP client for node.js.
 
+[![NPM version](https://img.shields.io/npm/v/ssh2-sftp.svg?style=flat)](https://www.npmjs.com/package/ssh2-sftp)
+
 ## Requirements
 
 * [node.js](https://nodejs.org/en/) -- v0.8.0 or newer
