@@ -12,6 +12,11 @@
     "url": "http://dwpblog.site/"
   },
   "license": "MIT",
+  "keywords": [
+    "sftp",
+    "ssh2",
+    "node"
+  ],
   "dependencies": {
     "glob": "^7.1.2",
     "ssh2": "^0.5.5"
