@@ -61,7 +61,7 @@ Upload from local dirs: `static` in `./build` to remote SFTP: `/node-sftp/build`
 ```js
 client.connect(() => {
     let options = {
-        source: 'static',   // ex. static static/js static/js/index.js
+        source: 'static',   // ex. static  js  static/js  static/js/index.js
         localPath: './build',
         remotePath: '/node-sftp/build'
     };
@@ -89,7 +89,7 @@ Download from romate SFTP: `static` in `/node-sftp/build` to local: `./down`.
 ```js
 client.connect(() => {
     let options = {
-        source: 'static',   // ex. static static/js static/js/index.js
+        source: 'static',   // ex. static  static/js  static/js/index.js
         localPath: './down',
         remotePath: '/node-sftp/build'
     };
@@ -154,7 +154,7 @@ And passing the callback which should be executed when the client is ready.
 * **download**(< Object > options,< Function > callback) - downloads the contents of `options.remotePath` to `options.localPath` if both exist, and  passing the callback which should be executed after the client downloaded successfully.
 `options` can have the following properties:
 
-    * **source** - string - The `source` which should to be downloaded. Supports files and directories, if not set `source` , download all of files and directories. **Default:** `''`
+    * **source** - string - The `source` which should to be downloaded. Supports files and directories. **`source` is based on `remotePath` as the root path.** If not set `source` , download all of files and directories. **Default:** `''`
     * **localPath** - string - The local directory which should to be received.
     * **remotePath** - string - The remote sftp directory which should to be downloaded.
 
