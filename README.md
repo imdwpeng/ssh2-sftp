@@ -15,7 +15,100 @@ SFTP client for node.js.
 npm install ssh2-sftp
 ```
 
-## Usage
+## Client Examples
+
+ex. dirs:
+
+```
+node-sftp
+|- /build
+   |- index.html
+   |- page.html
+   |- /static
+      |- /js
+         |- index.js
+         |- page.js
+      |- /css
+         |- index.css
+         |- page.css
+|- /down
+```
+
+### connect
+
+```js
+const Sftp = require('ssh2-sftp');
+
+ var client = new Sftp({
+    "host": "192.168.1.1",
+    "port": 22,
+    "user": "root",
+    "password": "root",
+    "privateKey": fs.readFileSync('/.ssh/id_rsa')   // password or privateKey
+});
+
+ client.connect(callback);
+```
+
+### upload 
+
+Upload from local dirs: `static` in `./build` to remote SFTP: `/node-sftp/build`.
+
+```js
+client.connect(() => {
+    let options = {
+        source: 'static',   // ex. static static/js static/js/index.js
+        localPath: './build',
+        remotePath: '/node-sftp/build'
+    };
+
+    client.download(options, callback);
+});
+
+/* Remote SFTP dirs output:
+ * node-sftp
+ * |- /build
+ *    |- /static
+ *       |- /js
+ *          |- index.js
+ *          |- page.js
+ *       |- /css
+ *          |- index.css
+ *          |- page.css
+ */
+```
+
+### download
+
+Download from romate SFTP: `static` in `/node-sftp/build` to local: `./down`.
+
+```js
+client.connect(() => {
+    let options = {
+        source: 'static',   // ex. static static/js static/js/index.js
+        localPath: './down',
+        remotePath: '/node-sftp/build'
+    };
+
+    client.download(options, callback);
+});
+
+/* Local dirs output:
+ * node-sftp
+ * |- /build
+ *    |- ...
+ * |- /down
+ *    |- /static
+ *       |- /js
+ *          |- index.js
+ *          |- page.js
+ *       |- /css
+ *          |- index.css
+ *          |- page.css
+ */
+```
+
+## Client Usage
 
 ### Initialization
 
@@ -47,13 +140,19 @@ And passing the callback which should be executed when the client is ready.
 
 ### Methods
 
-* **upload**(< Object > options,< Function > callback) - expand the `options.source` paths using the glob module, upload all found files and directories to the specified `options.remotePath`, and passing the callback which should be executed after the client has be uploaded. 
+* **upload**(< Object > options,< Function > callback) - expand the `options.source` paths using the glob module, upload all found files and directories to the specified `options.remotePath`, and passing the callback which should be executed after the client uploaded successfully. 
 `options` can have the following properties:
     
-    * **source** - string - the `source` which should to be uploaded.
-    * **localPath** - string - the local directory which should to be uploaded.
-    * **remotePath** - string - the remote sftp directory which should to be received.
+    * **source** - string - The `source` which should to be uploaded, if not set `source` , upload all of files and directories. Supports files and directories. **Default:** `''`
+    * **localPath** - string - The local directory which should to be uploaded.
+    * **remotePath** - string - The remote sftp directory which should to be received.
 
+* **download**(< Object > options,< Function > callback) - downloads the contents of `options.remotePath` to `options.localPath` if both exist, and  passing the callback which should be executed after the client downloaded successfully.
+`options` can have the following properties:
+
+    * **source** - string - The `source` which should to be downloaded. Supports files and directories, if not set `source` , download all of files and directories. **Default:** `''`
+    * **localPath** - string - The local directory which should to be received.
+    * **remotePath** - string - The remote sftp directory which should to be downloaded.
 
 
 
